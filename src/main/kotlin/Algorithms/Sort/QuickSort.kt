@@ -17,7 +17,7 @@ private fun quickSortInternal(array: Array<Int>,l:Int,r:Int) {
 
 private fun partition(array: Array<Int>, l:Int, r:Int) : Int{
 
-    val core = array[r]
+    val core = array[Random.nextInt(l,r)]
     var less = l
 
     for (i in l..r) {
