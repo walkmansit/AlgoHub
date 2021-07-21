@@ -17,16 +17,29 @@ private fun quickSortInternal(array: Array<Int>,l:Int,r:Int) {
 
 private fun partition(array: Array<Int>, l:Int, r:Int) : Int{
 
-    val core = array[Random.nextInt(l,r)]
+    val randomIdx = Random.nextInt(l,r+1)
+    swap(array,randomIdx,r)
+
+    val core = array[r]
     var less = l
 
     for (i in l..r) {
         if (array[i] <= core) {
-            val v = array[less]
-            array[less] = array[i]
-            array[i] = v
+            swap(array,less,i)
             less++
         }
     }
    return less-1
+}
+
+private fun findMedianeIdx(array: Array<Int>, l:Int, r:Int) : Int{
+    val midIdx = l + (r-l)/2
+    val start = array[l]
+    val middle = array[midIdx]
+    val end = array[r]
+    return when{
+        middle in start..end -> midIdx
+        start in middle..end -> l
+        else -> r
+    }
 }

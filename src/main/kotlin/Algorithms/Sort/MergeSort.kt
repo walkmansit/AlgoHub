@@ -8,7 +8,7 @@ fun mergeSort(array: Array<Int>) : Array<Int> {
 private fun mergeSort(array: Array<Int>,l:Int,r:Int){
 
     if (l<r){
-        val m = (r+l)/2
+        val m = l+((r-l)/2)
         mergeSort(array,l,m)
         mergeSort(array,m+1,r)
         union(array,l,m,r)

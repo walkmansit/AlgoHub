@@ -9,9 +9,7 @@ fun selectionSort(array: Array<Int>) : Array<Int> {
                 minPos = j
             }
         }
-        val v = array[i]
-        array[i] = array[minPos]
-        array[minPos] = v
+        swap(array,minPos,i)
     }
 
     return array

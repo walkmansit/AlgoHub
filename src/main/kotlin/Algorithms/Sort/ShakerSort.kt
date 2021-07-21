@@ -8,18 +8,14 @@ fun shakerSort(array: Array<Int>) :Array<Int> {
     while (left<=right){
         for (i in left until right){
             if (array[i]>array[i+1]){
-                val v = array[i]
-                array[i] = array[i+1]
-                array[i+1] = v
+                swap(array,i,i+1)
             }
         }
         right--
 
         for (i in right downTo left+1){
             if (array[i]<array[i-1]){
-                val v = array[i]
-                array[i] = array[i-1]
-                array[i-1] = v
+                swap(array,i,i-1)
             }
         }
         left++
